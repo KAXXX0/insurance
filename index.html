@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Lines Insurance License Trainer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts for professional look -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f4f6fa;
+            margin: 0;
+            color: #222;
+        }
+        header {
+            background: #2a3d66;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #ffd700;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+            padding: 2rem;
+        }
+        .question-section {
+            margin-bottom: 2rem;
+        }
+        .question {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .answers label {
+            display: block;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+        .answers input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+        .answers label.selected {
+            background: #e3eafc;
+        }
+        .feedback {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        .achievements {
+            margin-top: 2rem;
+            background: #f9fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(44,62,80,0.05);
+        }
+        .achievements h3 {
+            margin-top: 0;
+        }
+        .progress-bar {
+            background: #e3eafc;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            height: 18px;
+        }
+        .progress-bar-inner {
+            background: #2a3d66;
+            height: 100%;
+            width: 0;
+            transition: width 0.3s;
+        }
+        button {
+            background: #2a3d66;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #1b2742;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="font-size:1.5rem;font-weight:bold;">Personal Lines Insurance License Trainer</div>
+        <nav>
+            <a href="#" onclick="showSection('quiz')">Quiz</a>
+            <a href="#" onclick="showSection('achievements')">Achievements</a>
+            <a href="#" onclick="showSection('progress')">Progress</a>
+        </nav>
+    </header>
+    <div class="container">
+        <!-- Quiz Section -->
+        <section id="quiz-section" class="question-section">
+            <div class="progress-bar">
+                <div class="progress-bar-inner" id="progress-bar-inner"></div>
+            </div>
+            <div class="question" id="question-text"></div>
+            <form class="answers" id="answers-form"></form>
+            <div class="feedback" id="feedback"></div>
+            <button id="next-btn" style="display:none;">Next Question</button>
+        </section>
+        <!-- Achievements Section -->
+        <section id="achievements-section" class="achievements" style="display:none;">
+            <h3>Achievements</h3>
+            <ul id="achievements-list"></ul>
+        </section>
+        <!-- Progress Section -->
+        <section id="progress-section" style="display:none;">
+            <h3>Your Progress</h3>
+            <p>Correct Answers: <span id="correct-count">0</span></p>
+            <p>Wrong Answers: <span id="wrong-count">0</span></p>
+            <p>Total Questions Attempted: <span id="attempted-count">0</span></p>
+        </section>
+    </div>
+    <script>
+        // Sample questions (replace with 1000+ in production)
+        const questions = [
+            {
+                level: "Beginner",
+                question: "What is a deductible in an insurance policy?",
+                answers: [
+                    "The amount the insurer pays before coverage begins",
+                    "The amount the insured pays before coverage begins",
+                    "The total premium for the policy",
+                    "The maximum payout of the policy"
+                ],
+                correct: 1,
+                explanation: "A deductible is the amount the insured must pay before the insurance company pays its share."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a type of personal lines insurance?",
+                answers: [
+                    "Auto insurance",
+                    "Homeowners insurance",
+                    "Life insurance",
+                    "Commercial property insurance"
+                ],
+                correct: 3,
+                explanation: "Commercial property insurance is a commercial line, not a personal line."
+            },
+            {
+                level: "Intermediate",
+                question: "What does liability coverage in an auto policy protect against?",
+                answers: [
+                    "Damage to your own car",
+                    "Injuries to yourself",
+                    "Claims from others for injury or property damage you cause",
+                    "Mechanical breakdowns"
+                ],
+                correct: 2,
+                explanation: "Liability coverage pays for injuries or damages you cause to others."
+            },
+            {
+                level: "Expert",
+                question: "Which endorsement would increase the coverage limit for jewelry in a homeowners policy?",
+                answers: [
+                    "Scheduled Personal Property Endorsement",
+                    "Flood Endorsement",
+                    "Earthquake Endorsement",
+                    "Replacement Cost Endorsement"
+                ],
+                correct: 0,
+                explanation: "The Scheduled Personal Property Endorsement increases limits for specific valuable items."
+            }
+            // ... Add more questions up to 1000+ for production
+        ];
+
+        // Persistent storage keys
+        const STORAGE_KEY = 'pli_quiz_progress_v1';
+
+        // Load or initialize progress
+        let progress = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+            current: 0,
+            correct: 0,
+            wrong: 0,
+            attempted: 0,
+            achievements: []
+        };
+
+        // Achievements definitions
+        const achievementsList = [
+            { id: 'first-correct', name: 'First Correct Answer', condition: p => p.correct >= 1 },
+            { id: 'ten-correct', name: '10 Correct Answers', condition: p => p.correct >= 10 },
+            { id: 'fifty-correct', name: '50 Correct Answers', condition: p => p.correct >= 50 },
+            { id: 'hundred-correct', name: '100 Correct Answers', condition: p => p.correct >= 100 },
+            { id: 'no-mistakes', name: '10 in a Row Without Mistake', condition: p => p.correct >= 10 && p.wrong === 0 },
+            { id: 'quiz-complete', name: 'Completed All Questions', condition: p => p.current >= questions.length }
+        ];
+
+        function saveProgress() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+        }
+
+        function updateProgressBar() {
+            const percent = Math.min(100, (progress.current / questions.length) * 100);
+            document.getElementById('progress-bar-inner').style.width = percent + '%';
+        }
+
+        function showSection(section) {
+            document.getElementById('quiz-section').style.display = section === 'quiz' ? '' : 'none';
+            document.getElementById('achievements-section').style.display = section === 'achievements' ? '' : 'none';
+            document.getElementById('progress-section').style.display = section === 'progress' ? '' : 'none';
+            if (section === 'achievements') renderAchievements();
+            if (section === 'progress') renderProgress();
+        }
+
+        function renderQuestion() {
+            updateProgressBar();
+            const q = questions[progress.current];
+            if (!q) {
+                document.getElementById('question-text').textContent = "Congratulations! You've completed all questions.";
+                document.getElementById('answers-form').innerHTML = '';
+                document.getElementById('next-btn').style.display = 'none';
+                document.getElementById('feedback').textContent = '';
+                return;
+            }
+            document.getElementById('question-text').innerHTML = `<strong>Level: ${q.level}</strong><br>${q.question}`;
+            const answersForm = document.getElementById('answers-form');
+            answersForm.innerHTML = '';
+            q.answers.forEach((ans, idx) => {
+                const label = document.createElement('label');
+                label.innerHTML = `<input type="radio" name="answer" value="${idx}"> ${ans}`;
+                answersForm.appendChild(label);
+            });
+            document.getElementById('feedback').textContent = '';
+            document.getElementById('next-btn').style.display = 'none';
+
+            // Add selection highlight
+            answersForm.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.addEventListener('change', function() {
+                    answersForm.querySelectorAll('label').forEach(l => l.classList.remove('selected'));
+                    input.parentElement.classList.add('selected');
+                    checkAnswer(parseInt(input.value));
+                });
+            });
+        }
+
+        function checkAnswer(selectedIdx) {
+            const q = questions[progress.current];
+            const feedback = document.getElementById('feedback');
+            if (selectedIdx === q.correct) {
+                feedback.textContent = "Correct! " + q.explanation;
+                feedback.style.color = "green";
+                progress.correct++;
+            } else {
+                feedback.textContent = "Wrong. " + q.explanation;
+                feedback.style.color = "red";
+                progress.wrong++;
+            }
+            progress.attempted++;
+            unlockAchievements();
+            saveProgress();
+            document.getElementById('next-btn').style.display = '';
+            // Disable further selection
+            document.querySelectorAll('input[name="answer"]').forEach(input => input.disabled = true);
+        }
+
+        document.getElementById('next-btn').addEventListener('click', function() {
+            progress.current++;
+            saveProgress();
+            renderQuestion();
+        });
+
+        function unlockAchievements() {
+            achievementsList.forEach(a => {
+                if (!progress.achievements.includes(a.id) && a.condition(progress)) {
+                    progress.achievements.push(a.id);
+                }
+            });
+        }
+
+        function renderAchievements() {
+            const ul = document.getElementById('achievements-list');
+            ul.innerHTML = '';
+            achievementsList.forEach(a => {
+                const li = document.createElement('li');
+                li.textContent = a.name;
+                li.style.color = progress.achievements.includes(a.id) ? 'green' : '#aaa';
+                ul.appendChild(li);
+            });
+        }
+
+        function renderProgress() {
+            document.getElementById('correct-count').textContent = progress.correct;
+            document.getElementById('wrong-count').textContent = progress.wrong;
+            document.getElementById('attempted-count').textContent = progress.attempted;
+        }
+
+        // Initial render
+        renderQuestion();
+    </script>
+</body>
+</html></div></section>
