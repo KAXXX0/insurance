@@ -56,9 +56,13 @@
             padding: 0.5rem;
             border-radius: 5px;
             transition: background 0.2s;
+            font-size: 1rem;
         }
         .answers input[type="radio"] {
             margin-right: 0.5rem;
+            width: 1.2em;
+            height: 1.2em;
+            vertical-align: middle;
         }
         .answers label.selected {
             background: #e3eafc;
@@ -94,26 +98,73 @@
             background: #2a3d66;
             color: #fff;
             border: none;
-            padding: 0.7rem 1.5rem;
+            padding: 0.9rem 2rem;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             cursor: pointer;
             margin-top: 1rem;
             transition: background 0.2s;
+            min-width: 150px;
         }
-        button:hover {
+        button:hover, button:focus {
             background: #1b2742;
         }
+        /* --- Mobile Styles --- */
         @media (max-width: 600px) {
             .container {
-                padding: 1rem;
+                max-width: 100vw;
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+                padding: 1rem 0.5rem;
             }
             header {
                 flex-direction: column;
                 align-items: flex-start;
+                padding: 1rem 1rem;
             }
             nav {
                 gap: 1rem;
+                width: 100%;
+                justify-content: flex-start;
+                margin-top: 0.5rem;
+            }
+            nav a {
+                font-size: 1.1rem;
+                padding: 0.5rem 0.7rem;
+            }
+            .question {
+                font-size: 1.05rem;
+            }
+            .answers label {
+                font-size: 1rem;
+                padding: 0.8rem 0.5rem;
+                margin-bottom: 0.7rem;
+            }
+            .progress-bar {
+                height: 14px;
+            }
+            button {
+                width: 100%;
+                min-width: unset;
+                font-size: 1.1rem;
+                padding: 1rem 0;
+                margin-top: 1.2rem;
+            }
+            .achievements, #progress-section {
+                padding: 0.7rem 0.3rem;
+            }
+        }
+        @media (max-width: 400px) {
+            .container {
+                padding: 0.5rem 0.1rem;
+            }
+            header {
+                padding: 0.7rem 0.3rem;
+            }
+            nav a {
+                font-size: 1rem;
+                padding: 0.4rem 0.3rem;
             }
         }
     </style>
@@ -201,8 +252,1099 @@
                 ],
                 correct: 0,
                 explanation: "The Scheduled Personal Property Endorsement increases limits for specific valuable items."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is typically covered by renters insurance?",
+                answers: [
+                    "The building structure",
+                    "Personal belongings of the tenant",
+                    "Flood damage",
+                    "Earthquake damage"
+                ],
+                correct: 1,
+                explanation: "Renters insurance covers the tenant's personal belongings, not the building."
+            },
+            {
+                level: "Beginner",
+                question: "What is the main purpose of insurance?",
+                answers: [
+                    "To eliminate risk",
+                    "To transfer risk",
+                    "To increase risk",
+                    "To avoid paying taxes"
+                ],
+                correct: 1,
+                explanation: "Insurance transfers risk from the insured to the insurer."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a peril typically covered by a standard homeowners policy?",
+                answers: [
+                    "Fire",
+                    "Theft",
+                    "Flood",
+                    "Vandalism"
+                ],
+                correct: 2,
+                explanation: "Flood is not covered by a standard homeowners policy; it requires separate coverage."
+            },
+            {
+                level: "Beginner",
+                question: "What does the term 'premium' refer to in insurance?",
+                answers: [
+                    "The amount paid for coverage",
+                    "The amount paid out in a claim",
+                    "The deductible amount",
+                    "The policy limit"
+                ],
+                correct: 0,
+                explanation: "The premium is the amount paid for insurance coverage."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is an example of a hazard?",
+                answers: [
+                    "A fire",
+                    "Leaving candles unattended",
+                    "A tornado",
+                    "A theft"
+                ],
+                correct: 1,
+                explanation: "A hazard increases the chance of loss, such as leaving candles unattended."
+            },
+            {
+                level: "Beginner",
+                question: "What is an 'endorsement' in insurance?",
+                answers: [
+                    "A type of deductible",
+                    "A modification to the policy",
+                    "A claim payment",
+                    "A premium refund"
+                ],
+                correct: 1,
+                explanation: "An endorsement modifies the terms or coverage of a policy."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following best describes 'actual cash value'?",
+                answers: [
+                    "Replacement cost minus depreciation",
+                    "Replacement cost plus depreciation",
+                    "Original purchase price",
+                    "Market value"
+                ],
+                correct: 0,
+                explanation: "Actual cash value is replacement cost minus depreciation."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a benefit of insurance?",
+                answers: [
+                    "Peace of mind",
+                    "Risk transfer",
+                    "Guaranteed profit",
+                    "Financial protection"
+                ],
+                correct: 2,
+                explanation: "Insurance does not guarantee profit."
+            },
+            {
+                level: "Beginner",
+                question: "What is the purpose of liability insurance?",
+                answers: [
+                    "To pay for your own injuries",
+                    "To pay for damage you cause to others",
+                    "To pay for your own property damage",
+                    "To pay for routine maintenance"
+                ],
+                correct: 1,
+                explanation: "Liability insurance pays for damage or injury you cause to others."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is a personal lines insurance product?",
+                answers: [
+                    "Workers' compensation",
+                    "Boat insurance",
+                    "Commercial auto insurance",
+                    "Product liability insurance"
+                ],
+                correct: 1,
+                explanation: "Boat insurance is a personal lines product."
+            },
+            {
+                level: "Beginner",
+                question: "What is subrogation?",
+                answers: [
+                    "The insurer's right to recover from a third party",
+                    "The insured's right to sue the insurer",
+                    "A type of deductible",
+                    "A type of policy"
+                ],
+                correct: 0,
+                explanation: "Subrogation allows the insurer to recover costs from a third party responsible for a loss."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a requirement for an insurable risk?",
+                answers: [
+                    "The loss must be accidental",
+                    "The loss must be catastrophic",
+                    "The loss must be measurable",
+                    "The loss must be predictable"
+                ],
+                correct: 1,
+                explanation: "Catastrophic losses are generally not insurable."
+            },
+            {
+                level: "Beginner",
+                question: "What is the purpose of an insurance application?",
+                answers: [
+                    "To pay the premium",
+                    "To provide information for underwriting",
+                    "To file a claim",
+                    "To cancel a policy"
+                ],
+                correct: 1,
+                explanation: "The application provides information for the insurer to underwrite the risk."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is an example of a moral hazard?",
+                answers: [
+                    "Living in a flood zone",
+                    "Leaving doors unlocked",
+                    "Intentionally causing a loss",
+                    "Having a swimming pool"
+                ],
+                correct: 2,
+                explanation: "Intentionally causing a loss is a moral hazard."
+            },
+            {
+                level: "Beginner",
+                question: "What is the 'policy limit'?",
+                answers: [
+                    "The maximum amount the insurer will pay",
+                    "The minimum premium required",
+                    "The deductible amount",
+                    "The number of claims allowed"
+                ],
+                correct: 0,
+                explanation: "The policy limit is the maximum amount the insurer will pay for a covered loss."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT typically covered by auto insurance?",
+                answers: [
+                    "Collision damage",
+                    "Liability for injuries to others",
+                    "Routine maintenance",
+                    "Comprehensive losses"
+                ],
+                correct: 2,
+                explanation: "Routine maintenance is not covered by auto insurance."
+            },
+            {
+                level: "Beginner",
+                question: "What is the purpose of a deductible?",
+                answers: [
+                    "To increase premiums",
+                    "To reduce small claims and share risk",
+                    "To increase coverage",
+                    "To eliminate risk"
+                ],
+                correct: 1,
+                explanation: "Deductibles reduce small claims and share risk between insurer and insured."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is a peril?",
+                answers: [
+                    "Negligence",
+                    "Fire",
+                    "Poor maintenance",
+                    "Leaving windows open"
+                ],
+                correct: 1,
+                explanation: "A peril is a cause of loss, such as fire."
+            },
+            {
+                level: "Beginner",
+                question: "What is the 'declarations page' of an insurance policy?",
+                answers: [
+                    "A summary of key policy information",
+                    "A list of exclusions",
+                    "A claims form",
+                    "A bill for premium"
+                ],
+                correct: 0,
+                explanation: "The declarations page summarizes key information about the policy."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a type of property covered by homeowners insurance?",
+                answers: [
+                    "Personal property",
+                    "The dwelling",
+                    "Detached structures",
+                    "Commercial inventory"
+                ],
+                correct: 3,
+                explanation: "Commercial inventory is not covered by homeowners insurance."
+            },
+            {
+                level: "Beginner",
+                question: "What is 'replacement cost' coverage?",
+                answers: [
+                    "Pays the depreciated value",
+                    "Pays the cost to replace with new property",
+                    "Pays the original purchase price",
+                    "Pays the market value"
+                ],
+                correct: 1,
+                explanation: "Replacement cost coverage pays to replace with new property of like kind and quality."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a common exclusion in a homeowners policy?",
+                answers: [
+                    "Flood",
+                    "Earthquake",
+                    "Fire",
+                    "War"
+                ],
+                correct: 2,
+                explanation: "Fire is typically covered, not excluded."
+            },
+            {
+                level: "Beginner",
+                question: "What is the purpose of an insurance agent?",
+                answers: [
+                    "To underwrite policies",
+                    "To sell and service insurance policies",
+                    "To pay claims",
+                    "To regulate insurance companies"
+                ],
+                correct: 1,
+                explanation: "Agents sell and service insurance policies."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a duty of the insured after a loss?",
+                answers: [
+                    "Notify the insurer promptly",
+                    "Protect property from further damage",
+                    "Submit a sworn proof of loss",
+                    "Pay the claim immediately"
+                ],
+                correct: 3,
+                explanation: "The insurer, not the insured, pays the claim."
+            },
+            {
+                level: "Beginner",
+                question: "What is 'insurable interest'?",
+                answers: [
+                    "A financial stake in the property insured",
+                    "A type of policy",
+                    "A deductible",
+                    "A claim payment"
+                ],
+                correct: 0,
+                explanation: "Insurable interest means the insured would suffer a financial loss if the property is damaged."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a type of auto insurance coverage?",
+                answers: [
+                    "Collision",
+                    "Comprehensive",
+                    "Liability",
+                    "Workers' compensation"
+                ],
+                correct: 3,
+                explanation: "Workers' compensation is not an auto insurance coverage."
+            },
+            {
+                level: "Beginner",
+                question: "What is the main difference between actual cash value and replacement cost?",
+                answers: [
+                    "Replacement cost includes depreciation",
+                    "Actual cash value pays more",
+                    "Replacement cost does not deduct for depreciation",
+                    "Actual cash value pays the original price"
+                ],
+                correct: 2,
+                explanation: "Replacement cost does not deduct for depreciation; actual cash value does."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a benefit of bundling insurance policies?",
+                answers: [
+                    "Discounts",
+                    "Simplified billing",
+                    "Increased risk",
+                    "Convenience"
+                ],
+                correct: 2,
+                explanation: "Bundling does not increase risk."
+            },
+            {
+                level: "Beginner",
+                question: "What is the purpose of an insurance claim?",
+                answers: [
+                    "To request payment for a covered loss",
+                    "To cancel a policy",
+                    "To increase coverage",
+                    "To pay the premium"
+                ],
+                correct: 0,
+                explanation: "A claim is a request for payment after a covered loss."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a reason for policy cancellation?",
+                answers: [
+                    "Nonpayment of premium",
+                    "Fraud",
+                    "Filing a claim",
+                    "Material misrepresentation"
+                ],
+                correct: 2,
+                explanation: "Filing a claim is not a reason for cancellation."
+            },
+            {
+                level: "Beginner",
+                question: "What is the 'insuring agreement'?",
+                answers: [
+                    "A summary of coverage provided",
+                    "A list of exclusions",
+                    "A bill for premium",
+                    "A claims form"
+                ],
+                correct: 0,
+                explanation: "The insuring agreement describes the coverage provided."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a type of deductible?",
+                answers: [
+                    "Flat deductible",
+                    "Percentage deductible",
+                    "Aggregate deductible",
+                    "Premium deductible"
+                ],
+                correct: 3,
+                explanation: "There is no such thing as a premium deductible."
+            },
+            {
+                level: "Beginner",
+                question: "What is the purpose of an exclusion in an insurance policy?",
+                answers: [
+                    "To increase coverage",
+                    "To specify what is not covered",
+                    "To reduce premiums",
+                    "To pay claims faster"
+                ],
+                correct: 1,
+                explanation: "Exclusions specify what is not covered by the policy."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a type of property insurance?",
+                answers: [
+                    "Homeowners insurance",
+                    "Renters insurance",
+                    "Auto insurance",
+                    "Life insurance"
+                ],
+                correct: 3,
+                explanation: "Life insurance is not property insurance."
+            },
+            {
+                level: "Beginner",
+                question: "What is a 'peril'?",
+                answers: [
+                    "A cause of loss",
+                    "A type of deductible",
+                    "A policy limit",
+                    "A claim payment"
+                ],
+                correct: 0,
+                explanation: "A peril is a cause of loss, such as fire or theft."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a reason to purchase insurance?",
+                answers: [
+                    "To transfer risk",
+                    "To comply with legal requirements",
+                    "To guarantee profit",
+                    "To protect assets"
+                ],
+                correct: 2,
+                explanation: "Insurance does not guarantee profit."
+            },
+            {
+                level: "Beginner",
+                question: "What is the purpose of an insurance premium?",
+                answers: [
+                    "To pay for coverage",
+                    "To pay claims",
+                    "To pay deductibles",
+                    "To pay taxes"
+                ],
+                correct: 0,
+                explanation: "The premium is the amount paid for insurance coverage."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a type of liability insurance?",
+                answers: [
+                    "Personal liability",
+                    "Medical payments",
+                    "Collision",
+                    "Umbrella"
+                ],
+                correct: 2,
+                explanation: "Collision is not a liability coverage."
+            },
+            {
+                level: "Beginner",
+                question: "What is the purpose of an insurance policy?",
+                answers: [
+                    "To provide legal evidence of coverage",
+                    "To pay taxes",
+                    "To guarantee profit",
+                    "To avoid risk"
+                ],
+                correct: 0,
+                explanation: "The policy is a legal contract providing evidence of coverage."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a type of personal property?",
+                answers: [
+                    "Furniture",
+                    "Clothing",
+                    "Garage",
+                    "Electronics"
+                ],
+                correct: 2,
+                explanation: "A garage is part of the dwelling, not personal property."
+            },
+            {
+                level: "Beginner",
+                question: "What is the purpose of an insurance endorsement?",
+                answers: [
+                    "To modify coverage",
+                    "To pay claims",
+                    "To cancel a policy",
+                    "To pay premiums"
+                ],
+                correct: 0,
+                explanation: "Endorsements modify the terms or coverage of a policy."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a type of auto insurance coverage?",
+                answers: [
+                    "Comprehensive",
+                    "Liability",
+                    "Collision",
+                    "Flood"
+                ],
+                correct: 3,
+                explanation: "Flood is not a standard auto insurance coverage."
+            },
+            {
+                level: "Beginner",
+                question: "What is the purpose of an insurance deductible?",
+                answers: [
+                    "To reduce small claims",
+                    "To increase premiums",
+                    "To increase coverage",
+                    "To pay taxes"
+                ],
+                correct: 0,
+                explanation: "Deductibles reduce small claims and share risk."
+            },
+            {
+                level: "Beginner",
+                question: "Which of the following is NOT a benefit of insurance?",
+                answers: [
+                    "Financial protection",
+                    "Peace of mind",
+                    "Guaranteed profit",
+                    "Risk transfer"
+                ],
+                correct: 2,
+                explanation: "Insurance does not guarantee profit."
+            },
+            {
+                level: "Intermediate",
+                question: "Which of the following is NOT covered by comprehensive auto insurance?",
+                answers: [
+                    "Theft",
+                    "Vandalism",
+                    "Collision",
+                    "Fire"
+                ],
+                correct: 2,
+                explanation: "Collision is covered by collision coverage, not comprehensive."
+            },
+            {
+                level: "Intermediate",
+                question: "What is the purpose of medical payments coverage in auto insurance?",
+                answers: [
+                    "To pay for injuries to others",
+                    "To pay for your own injuries",
+                    "To pay for property damage",
+                    "To pay for legal defense"
+                ],
+                correct: 1,
+                explanation: "Medical payments coverage pays for injuries to you and your passengers."
+            },
+            {
+                level: "Intermediate",
+                question: "Which of the following is NOT a factor in determining auto insurance premiums?",
+                answers: [
+                    "Driving record",
+                    "Type of car",
+                    "Color of car",
+                    "Location"
+                ],
+                correct: 2,
+                explanation: "The color of the car does not affect premiums."
+            },
+            {
+                level: "Intermediate",
+                question: "What is the purpose of uninsured motorist coverage?",
+                answers: [
+                    "To pay for damage to your car",
+                    "To pay for injuries caused by uninsured drivers",
+                    "To pay for routine maintenance",
+                    "To pay for legal defense"
+                ],
+                correct: 1,
+                explanation: "Uninsured motorist coverage pays for injuries caused by uninsured drivers."
+            },
+            {
+                level: "Intermediate",
+                question: "Which of the following is NOT a type of homeowners policy?",
+                answers: [
+                    "HO-1",
+                    "HO-3",
+                    "HO-5",
+                    "HO-9"
+                ],
+                correct: 3,
+                explanation: "HO-9 is not a standard homeowners policy form."
+            },
+            {
+                level: "Intermediate",
+                question: "What is the purpose of loss of use coverage in homeowners insurance?",
+                answers: [
+                    "To pay for repairs",
+                    "To pay for temporary living expenses",
+                    "To pay for medical bills",
+                    "To pay for legal defense"
+                ],
+                correct: 1,
+                explanation: "Loss of use coverage pays for additional living expenses if your home is uninhabitable."
+            },
+            {
+                level: "Intermediate",
+                question: "Which of the following is NOT a covered peril under a standard HO-3 policy?",
+                answers: [
+                    "Fire",
+                    "Theft",
+                    "Flood",
+                    "Vandalism"
+                ],
+                correct: 2,
+                explanation: "Flood is not covered under a standard HO-3 policy."
+            },
+            {
+                level: "Intermediate",
+                question: "What is the purpose of personal liability coverage in homeowners insurance?",
+                answers: [
+                    "To pay for damage to your home",
+                    "To pay for injuries to others",
+                    "To pay for your own injuries",
+                    "To pay for routine maintenance"
+                ],
+                correct: 1,
+                explanation: "Personal liability coverage pays for injuries or damage you cause to others."
+            },
+            {
+                level: "Intermediate",
+                question: "Which of the following is NOT a type of property covered by renters insurance?",
+                answers: [
+                    "Personal property",
+                    "Liability",
+                    "The building structure",
+                    "Loss of use"
+                ],
+                correct: 2,
+                explanation: "Renters insurance does not cover the building structure."
+            },
+            {
+                level: "Intermediate",
+                question: "What is the purpose of an umbrella policy?",
+                answers: [
+                    "To provide additional liability coverage",
+                    "To cover flood damage",
+                    "To pay for routine maintenance",
+                    "To cover earthquake damage"
+                ],
+                correct: 0,
+                explanation: "Umbrella policies provide additional liability coverage above other policies."
+            },
+            {
+                level: "Intermediate",
+                question: "Which of the following is NOT a benefit of replacement cost coverage?",
+                answers: [
+                    "Pays to replace with new property",
+                    "No deduction for depreciation",
+                    "Lower premiums",
+                    "Restores property to pre-loss condition"
+                ],
+                correct: 2,
+                explanation: "Replacement cost coverage usually has higher premiums."
+            },
+            {
+                level: "Intermediate",
+                question: "What is the purpose of an appraisal clause in an insurance policy?",
+                answers: [
+                    "To determine the value of property after a loss",
+                    "To increase coverage",
+                    "To pay claims faster",
+                    "To reduce premiums"
+                ],
+                correct: 0,
+                explanation: "The appraisal clause helps resolve disputes about the value of property after a loss."
+            },
+            {
+                level: "Intermediate",
+                question: "Which of the following is NOT a reason for nonrenewal of a policy?",
+                answers: [
+                    "High number of claims",
+                    "Change in risk",
+                    "Nonpayment of premium",
+                    "Filing a claim"
+                ],
+                correct: 3,
+                explanation: "Filing a claim alone is not a reason for nonrenewal."
+            },
+            {
+                level: "Intermediate",
+                question: "What is the purpose of a coinsurance clause?",
+                answers: [
+                    "To require the insured to carry a certain amount of insurance",
+                    "To pay claims faster",
+                    "To reduce premiums",
+                    "To increase coverage"
+                ],
+                correct: 0,
+                explanation: "Coinsurance requires the insured to carry a certain percentage of insurance to value."
+            },
+            {
+                level: "Intermediate",
+                question: "Which of the following is NOT a type of property covered by a standard homeowners policy?",
+                answers: [
+                    "Dwelling",
+                    "Personal property",
+                    "Detached structures",
+                    "Business inventory"
+                ],
+                correct: 3,
+                explanation: "Business inventory is not covered by a standard homeowners policy."
+            },
+            {
+                level: "Intermediate",
+                question: "What is the purpose of a scheduled personal property endorsement?",
+                answers: [
+                    "To increase coverage for specific valuable items",
+                    "To reduce premiums",
+                    "To pay claims faster",
+                    "To cover flood damage"
+                ],
+                correct: 0,
+                explanation: "Scheduled personal property endorsements increase coverage for valuable items."
+            },
+            {
+                level: "Intermediate",
+                question: "Which of the following is NOT a benefit of a higher deductible?",
+                answers: [
+                    "Lower premiums",
+                    "Reduced small claims",
+                    "Increased out-of-pocket costs",
+                    "Increased coverage"
+                ],
+                correct: 3,
+                explanation: "A higher deductible does not increase coverage."
+            },
+            {
+                level: "Intermediate",
+                question: "What is the purpose of an insurance binder?",
+                answers: [
+                    "To provide temporary coverage",
+                    "To pay claims",
+                    "To cancel a policy",
+                    "To pay premiums"
+                ],
+                correct: 0,
+                explanation: "A binder provides temporary coverage until the policy is issued."
+            },
+            {
+                level: "Intermediate",
+                question: "Which of the following is NOT a type of property covered by auto insurance?",
+                answers: [
+                    "Your car",
+                    "Other vehicles you damage",
+                    "Your home",
+                    "Personal property in your car"
+                ],
+                correct: 2,
+                explanation: "Auto insurance does not cover your home."
+            },
+            {
+                level: "Intermediate",
+                question: "What is the purpose of a personal articles floater?",
+                answers: [
+                    "To provide coverage for valuable personal property",
+                    "To pay for routine maintenance",
+                    "To cover flood damage",
+                    "To increase liability coverage"
+                ],
+                correct: 0,
+                explanation: "A personal articles floater covers valuable personal property."
+            },
+            {
+                level: "Intermediate",
+                question: "Which of the following is NOT a type of loss settlement?",
+                answers: [
+                    "Actual cash value",
+                    "Replacement cost",
+                    "Market value",
+                    "Premium value"
+                ],
+                correct: 3,
+                explanation: "Premium value is not a type of loss settlement."
+            },
+            {
+                level: "Intermediate",
+                question: "What is the purpose of a waiver of subrogation?",
+                answers: [
+                    "To prevent the insurer from recovering from a third party",
+                    "To increase coverage",
+                    "To pay claims faster",
+                    "To reduce premiums"
+                ],
+                correct: 0,
+                explanation: "A waiver of subrogation prevents the insurer from seeking recovery from a third party."
+            },
+            {
+                level: "Intermediate",
+                question: "Which of the following is NOT a type of property covered by renters insurance?",
+                answers: [
+                    "Personal property",
+                    "Liability",
+                    "The building structure",
+                    "Loss of use"
+                ],
+                correct: 2,
+                explanation: "Renters insurance does not cover the building structure."
+            },
+            {
+                level: "Intermediate",
+                question: "What is the purpose of a deductible in property insurance?",
+                answers: [
+                    "To reduce small claims",
+                    "To increase premiums",
+                    "To increase coverage",
+                    "To pay taxes"
+                ],
+                correct: 0,
+                explanation: "Deductibles reduce small claims and share risk."
+            },
+            {
+                level: "Intermediate",
+                question: "Which of the following is NOT a benefit of insurance?",
+                answers: [
+                    "Financial protection",
+                    "Peace of mind",
+                    "Guaranteed profit",
+                    "Risk transfer"
+                ],
+                correct: 2,
+                explanation: "Insurance does not guarantee profit."
+            },
+            {
+                level: "Expert",
+                question: "Which of the following is NOT a standard exclusion in a personal umbrella policy?",
+                answers: [
+                    "Intentional acts",
+                    "Business activities",
+                    "Personal injury",
+                    "Workers' compensation claims"
+                ],
+                correct: 2,
+                explanation: "Personal injury is typically covered, not excluded."
+            },
+            {
+                level: "Expert",
+                question: "What is the purpose of an 'open peril' policy?",
+                answers: [
+                    "To cover all perils except those specifically excluded",
+                    "To cover only named perils",
+                    "To increase premiums",
+                    "To reduce coverage"
+                ],
+                correct: 0,
+                explanation: "Open peril policies cover all perils except those specifically excluded."
+            },
+            {
+                level: "Expert",
+                question: "Which of the following is NOT a requirement for a valid insurance contract?",
+                answers: [
+                    "Offer and acceptance",
+                    "Consideration",
+                    "Insurable interest",
+                    "Guaranteed profit"
+                ],
+                correct: 3,
+                explanation: "Guaranteed profit is not a requirement for a valid contract."
+            },
+            {
+                level: "Expert",
+                question: "What is the purpose of the 'other insurance' clause?",
+                answers: [
+                    "To prevent double recovery",
+                    "To increase coverage",
+                    "To pay claims faster",
+                    "To reduce premiums"
+                ],
+                correct: 0,
+                explanation: "The other insurance clause prevents double recovery for the same loss."
+            },
+            {
+                level: "Expert",
+                question: "Which of the following is NOT a duty of the insurer after a loss?",
+                answers: [
+                    "Investigate the claim",
+                    "Pay covered losses",
+                    "Defend the insured in lawsuits",
+                    "Repair the property personally"
+                ],
+                correct: 3,
+                explanation: "The insurer does not personally repair property."
+            },
+            {
+                level: "Expert",
+                question: "What is the purpose of the 'appraisal clause' in a property policy?",
+                answers: [
+                    "To resolve disputes over the value of a loss",
+                    "To increase coverage",
+                    "To pay claims faster",
+                    "To reduce premiums"
+                ],
+                correct: 0,
+                explanation: "The appraisal clause helps resolve disputes over the value of a loss."
+            },
+            {
+                level: "Expert",
+                question: "Which of the following is NOT a type of property covered by a personal articles floater?",
+                answers: [
+                    "Jewelry",
+                    "Furs",
+                    "Business inventory",
+                    "Fine art"
+                ],
+                correct: 2,
+                explanation: "Business inventory is not covered by a personal articles floater."
+            },
+            {
+                level: "Expert",
+                question: "What is the purpose of the 'loss payable clause'?",
+                answers: [
+                    "To protect the interests of a lender",
+                    "To increase coverage",
+                    "To pay claims faster",
+                    "To reduce premiums"
+                ],
+                correct: 0,
+                explanation: "The loss payable clause protects the interests of a lender."
+            },
+            {
+                level: "Expert",
+                question: "Which of the following is NOT a type of property covered by a standard homeowners policy?",
+                answers: [
+                    "Dwelling",
+                    "Personal property",
+                    "Detached structures",
+                    "Commercial inventory"
+                ],
+                correct: 3,
+                explanation: "Commercial inventory is not covered by a standard homeowners policy."
+            },
+            {
+                level: "Expert",
+                question: "What is the purpose of the 'pro rata' clause?",
+                answers: [
+                    "To determine how multiple policies share a loss",
+                    "To increase coverage",
+                    "To pay claims faster",
+                    "To reduce premiums"
+                ],
+                correct: 0,
+                explanation: "The pro rata clause determines how multiple policies share a loss."
+            },
+            {
+                level: "Expert",
+                question: "Which of the following is NOT a benefit of an umbrella policy?",
+                answers: [
+                    "Additional liability coverage",
+                    "Broader coverage",
+                    "Lower premiums",
+                    "Coverage for excluded perils"
+                ],
+                correct: 2,
+                explanation: "Umbrella policies usually have higher, not lower, premiums."
+            },
+            {
+                level: "Expert",
+                question: "What is the purpose of the 'liberalization clause'?",
+                answers: [
+                    "To broaden coverage without additional premium",
+                    "To reduce coverage",
+                    "To increase premiums",
+                    "To pay claims faster"
+                ],
+                correct: 0,
+                explanation: "The liberalization clause broadens coverage without additional premium."
+            },
+            {
+                level: "Expert",
+                question: "Which of the following is NOT a requirement for an insurable risk?",
+                answers: [
+                    "The loss must be accidental",
+                    "The loss must be catastrophic",
+                    "The loss must be measurable",
+                    "The loss must be predictable"
+                ],
+                correct: 1,
+                explanation: "Catastrophic losses are generally not insurable."
+            },
+            {
+                level: "Expert",
+                question: "What is the purpose of the 'assignment clause'?",
+                answers: [
+                    "To prevent transfer of the policy without insurer consent",
+                    "To increase coverage",
+                    "To pay claims faster",
+                    "To reduce premiums"
+                ],
+                correct: 0,
+                explanation: "The assignment clause prevents transfer of the policy without insurer consent."
+            },
+            {
+                level: "Expert",
+                question: "Which of the following is NOT a type of property covered by a scheduled personal property endorsement?",
+                answers: [
+                    "Jewelry",
+                    "Furs",
+                    "Business inventory",
+                    "Fine art"
+                ],
+                correct: 2,
+                explanation: "Business inventory is not covered by a scheduled personal property endorsement."
+            },
+            {
+                level: "Expert",
+                question: "What is the purpose of the 'subrogation clause'?",
+                answers: [
+                    "To allow the insurer to recover from a third party",
+                    "To increase coverage",
+                    "To pay claims faster",
+                    "To reduce premiums"
+                ],
+                correct: 0,
+                explanation: "The subrogation clause allows the insurer to recover from a third party."
+            },
+            {
+                level: "Expert",
+                question: "Which of the following is NOT a benefit of replacement cost coverage?",
+                answers: [
+                    "Pays to replace with new property",
+                    "No deduction for depreciation",
+                    "Lower premiums",
+                    "Restores property to pre-loss condition"
+                ],
+                correct: 2,
+                explanation: "Replacement cost coverage usually has higher premiums."
+            },
+            {
+                level: "Expert",
+                question: "What is the purpose of the 'waiver of subrogation'?",
+                answers: [
+                    "To prevent the insurer from recovering from a third party",
+                    "To increase coverage",
+                    "To pay claims faster",
+                    "To reduce premiums"
+                ],
+                correct: 0,
+                explanation: "A waiver of subrogation prevents the insurer from seeking recovery from a third party."
+            },
+            {
+                level: "Expert",
+                question: "Which of the following is NOT a type of property covered by renters insurance?",
+                answers: [
+                    "Personal property",
+                    "Liability",
+                    "The building structure",
+                    "Loss of use"
+                ],
+                correct: 2,
+                explanation: "Renters insurance does not cover the building structure."
+            },
+            {
+                level: "Expert",
+                question: "What is the purpose of the 'coinsurance clause'?",
+                answers: [
+                    "To require the insured to carry a certain amount of insurance",
+                    "To pay claims faster",
+                    "To reduce premiums",
+                    "To increase coverage"
+                ],
+                correct: 0,
+                explanation: "Coinsurance requires the insured to carry a certain percentage of insurance to value."
+            },
+            {
+                level: "Expert",
+                question: "Which of the following is NOT a benefit of a higher deductible?",
+                answers: [
+                    "Lower premiums",
+                    "Reduced small claims",
+                    "Increased out-of-pocket costs",
+                    "Increased coverage"
+                ],
+                correct: 3,
+                explanation: "A higher deductible does not increase coverage."
+            },
+            {
+                level: "Expert",
+                question: "What is the purpose of an insurance binder?",
+                answers: [
+                    "To provide temporary coverage",
+                    "To pay claims",
+                    "To cancel a policy",
+                    "To pay premiums"
+                ],
+                correct: 0,
+                explanation: "A binder provides temporary coverage until the policy is issued."
             }
-            // ... Add more questions up to 1000+ for production
         ];
 
         // Persistent storage keys
@@ -330,4 +1472,4 @@
         renderQuestion();
     </script>
 </body>
-</html></div></section>
+</html>
